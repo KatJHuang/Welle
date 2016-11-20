@@ -47,14 +47,13 @@ var controller = Leap.loop(function(frame){
     {
       var hand = frame.hands[0];
       var position = hand.palmPosition;
-      // var velocity = hand.palmVelocity;
-      // var direction = hand.direction;
-      var volume = Math.sqrt(position[0]*position[0] + position[2]*position[2]);
-      // var volume = Math.sqrt(position[0]*position[0] + position[1]*position[1] + position[2]*position[2]);
-      loudness.setVolume(volume, function (err) {
-    		// Done 
+      var velocity = hand.palmVelocity;
+      var direction = hand.direction;
+      console.log("x-position = " + position[0] + " z-position = " + position[2]);
+      var hand_level = position[2];
+      loudness.setVolume(hand_level, function (err) {
+    	// Done 
 		});
-      console.log("x = " + position[0] + "y = " + position[1] + " z = " + position[2] + " volume = " + volume);
     }
   });
  
